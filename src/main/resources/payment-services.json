@@ -1,0 +1,102 @@
+{
+  "openapi": "3.0.0",
+  "x-stoplight": {
+    "id": "ynthprve2apq7"
+  },
+  "info": {
+    "title": "payment-services",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/payment/{bookId}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "bookId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "post": {
+        "summary": "",
+        "operationId": "post-payment-bookId",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaymentResponse"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PaymentRequest"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          },
+          "description": ""
+        },
+        "parameters": []
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "PaymentResponse": {
+        "title": "PaymentResponse",
+        "x-stoplight": {
+          "id": "ap4ydk5nqhkw8"
+        },
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "PaymentRequest": {
+        "title": "PaymentRequest",
+        "x-stoplight": {
+          "id": "t7p913kxorera"
+        },
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "credential1": {
+            "type": "string"
+          },
+          "credential2": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
